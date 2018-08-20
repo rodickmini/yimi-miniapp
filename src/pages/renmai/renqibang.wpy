@@ -1,0 +1,26 @@
+<template>
+  <view>
+    人气榜
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Renqibang extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '人气榜'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+</style>

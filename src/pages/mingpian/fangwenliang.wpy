@@ -1,0 +1,66 @@
+<template>
+  <view class="page">
+    <top-tab :list="tabList"/>
+    <user-list :list="userList"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import UserList from '../../components/userList'
+  import TopTab from '../../components/topTab'
+
+  export default class Fangwenliang extends wepy.page {
+    components = {
+      'user-list': UserList,
+      'top-tab': TopTab
+    }
+    config = {
+      navigationBarTitleText: '访问量',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
+    }
+    data = {
+      tabList: [
+        '今日访问量·123',
+        '累计访问量·10W+'
+      ],
+      userList: [
+        {
+          id: 1,
+          username: '发到您配',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          visitTime: '刚刚'
+        },
+        {
+          id: 2,
+          username: '发到您配',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          visitTime: '10分钟前'
+        },
+        {
+          id: 3,
+          username: '发到您配',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          visitTime: '06-12 12:34'
+        }
+      ]
+    }
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+</style>

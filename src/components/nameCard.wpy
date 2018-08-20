@@ -1,0 +1,113 @@
+<template>
+  <view class="card-outer">
+    <view class="name-row">
+      <image class="avatar" mode="aspectFill" @tap.stop="viewImage('http://ss2.meipian.me/users/7996859/b911a8557602453babd556a19841a5c7.jpg')" src="http://ss2.meipian.me/users/7996859/b911a8557602453babd556a19841a5c7.jpg"/>
+      <view class="name-info">
+        <view class="name line-clamp-1">张三</view>
+        <view class="comp-info">
+          <view class="line-clamp-1">设计主管 | 互联网</view>
+          <view class="line-clamp-1">阿里妈妈互联网有限公司</view>
+        </view>
+      </view>
+    </view>
+    <view class="contact-row">
+      <view class="phone line-clamp-1"><i class="iconfont icon-dianhua"></i><text @tap.stop="makePhoneCall(13072558338)">18888888888</text><i class="iconfont icon-suo"></i></view>
+      <view class="mail line-clamp-1"><i class="iconfont icon-youxiang"></i><text>a@b.com</text></view>
+      <view class="location line-clamp-1"><i class="iconfont icon-dizhi"></i><text>江苏省南京市仙林大街199号</text></view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class NameCard extends wepy.component {
+  components = {}
+  props = {
+    cardInfo: Object
+  }
+  config = {}
+  data = {}
+  methods = {
+    viewImage(url) {
+      wx.previewImage({
+        current: url,
+        urls: [url]
+      })
+    },
+    makePhoneCall(phone) {
+      wx.makePhoneCall({
+        phoneNumber: phone
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.card-outer {
+  width: 690rpx;
+  height: 420rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 3rpx 3rpx 14rpx 5rpx rgba(58,58,58,0.09);
+  padding: 40rpx 25rpx 54rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .name-row {
+    display: flex;
+    .avatar {
+      width: 140rpx;
+      height: 140rpx;
+      border-radius: 16rpx;
+      margin-right: 24rpx;
+    }
+    .name-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .name {
+        font-size: 40rpx;
+        color: #303030;
+      }
+      .comp-info {
+        color: #909090;
+        font-size: 24rpx;
+      }
+    }
+  }
+  .contact-row {
+    font-size: 28rpx;
+    line-height: 28rpx;
+    .iconfont {
+      font-size: 28rpx;
+      color: #D8D8D8;
+      margin-right: 12rpx;
+      // vertical-align: -1rpx;
+    }
+    text {
+      vertical-align: middle;
+    }
+    .phone {
+      color: $mainBlue;
+      margin-bottom: 20rpx;
+      .icon-suo {
+        color: $mainBlue;
+        margin-left: 15rpx;
+      }
+      .icon-suo-open {
+        margin-left: 15rpx;
+      }
+    }
+    .mail {
+      color: #909090;
+      margin-bottom: 20rpx;
+    }
+    .location {
+      color: #909090;
+    }
+  }
+}
+</style>

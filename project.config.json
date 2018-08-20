@@ -1,0 +1,13 @@
+{
+  "description": "一米名片",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "wxf497a398ff45cbac",
+  "projectname": "yimi-miniapp",
+  "miniprogramRoot": "./dist"
+}

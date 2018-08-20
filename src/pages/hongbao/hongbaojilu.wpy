@@ -1,0 +1,81 @@
+<template>
+  <view class="page">
+    <view class="tab">
+      <view class="tab-item {{tabStatus[0]}}" @tap="switchTab(0)">我发出的</view>
+      <view class="tab-item {{tabStatus[1]}}" @tap="switchTab(1)">我收到的</view>
+    </view>
+    <wofachude  wx:if="{{tabStatus[0]}}"/>
+    <woshoudaode  wx:if="{{tabStatus[1]}}"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Wofachude from '../../components/hongbaojilu/wofachude'
+  import Woshoudaode from '../../components/hongbaojilu/woshoudaode'
+
+  export default class HongbaoJilu extends wepy.page {
+    components = {
+      'wofachude': Wofachude,
+      'woshoudaode': Woshoudaode
+    }
+    config = {
+      navigationBarTitleText: '红包记录'
+    }
+    data = {
+      tabStatus: ['active', '']
+    }
+    methods = {
+      switchTab(index) {
+        this.tabStatus = index == 0 ? ['active', ''] : ['', 'active']
+      }
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.page {
+  height: 100%;
+  padding-top: 90rpx;
+  background-color: #fff;
+}
+.tab {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 90rpx;
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1rpx solid #d4d4d4;
+  .tab-item {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    font-size: 28rpx;
+    color: #909090;
+    line-height: 90rpx;
+    &.active {
+      color: #303030;
+      font-weight: bold;
+    }
+    &.active::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 8rpx;
+      left: 50%;
+      margin-left: -23rpx;
+      width: 46rpx;
+      height: 6rpx;
+      border-radius: 100rpx;
+      background-color: #D85940;
+    }
+  }
+}
+</style>

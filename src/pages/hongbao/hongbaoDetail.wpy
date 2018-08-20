@@ -1,0 +1,27 @@
+<template>
+  <view>
+    红包详情
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class HongbaoDetail extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '红包详情'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

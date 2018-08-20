@@ -1,0 +1,40 @@
+<template>
+  <view class="tab-outer">
+    <repeat for="{{list}}" key="index" index="index" item="item">
+      <view class="tab-item">{{item}}</view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class TopTab extends wepy.component {
+  components = {}
+  props = {
+    list: Array
+  }
+  config = {}
+  data = {}
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+.tab-outer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 98rpx;
+  font-size: 30rpx;
+  color: #303030;
+  background-color: #FAFAFA;
+  .tab-item {
+    width: 50%;
+    text-align: center;
+    &:first-child {
+      border-right: 2rpx solid #D8D8D8;
+    }
+  }
+}
+</style>

@@ -1,0 +1,191 @@
+<template>
+  <view>
+    <view class="search-bar">
+      <view class="inner">
+        <i class="iconfont icon-sousuo"></i>
+        <input type="text" placeholder="搜索联系人" value="{{keywords}}" bindinput="bindSearchInput"/>
+        <i class="iconfont icon-delete" wx:if="{{showDelete}}" @tap="clearInput"></i>
+      </view>
+    </view>
+    <view class="list" wx:if="{{keywords}}">
+      <repeat for="{{list}}" key="index" index="index" item="user">
+        <view class="item">
+          <view class="left">
+            <image class="avatar" src="{{user.avatar}}" mode="aspectFill"/>
+            <view class="text-info">
+              <text class="username line-clamp-1">{{user.username}}</text>
+              <text class="title line-clamp-1">{{user.title}}</text>
+              <text class="company line-clamp-1">{{user.company}}</text>
+            </view>
+          </view>
+          <view class="right"></view>
+        </view>
+      </repeat>
+    </view>
+    <view class="empty" wx:if="{{keywords}}">没有找到相关的名片</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Search extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '搜索'
+    }
+    data = {
+      keywords: "",
+      list: [
+        {
+          id: 1,
+          username: '虎妞',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司'
+        },
+        {
+          id: 2,
+          username: '花花',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司'
+        }
+      ]
+    }
+    methods = {
+      bindSearchInput(e) {
+        this.keywords = e.detail.value
+      },
+      clearInput() {
+        this.keywords = ""
+        this.$apply()
+      }
+    }
+    computed = {
+      showDelete() {
+        return this.keywords ? true: false
+      }
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 112rpx;
+  background-color: #F2F2F2;
+  border-bottom: 1rpx solid #D4D4D4;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 702rpx;
+    height: 72rpx;
+    background-color: #fff;
+    color: #BEBEBE;
+    font-size: 30rpx;
+    border-radius: 10rpx;
+    .icon-sousuo {
+      margin: 0 15rpx 0 20rpx;
+    }
+    input {
+      flex-grow: 1;
+      color: #333;
+    }
+    .icon-delete {
+      margin: 0 20rpx 0 15rpx;
+    }
+  }
+}
+.list {
+  padding-left: 24rpx;
+  background-color: #fff;
+  .item {
+    padding: 30rpx 24rpx 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #E8E8E8;
+    &:last-child {
+      border-bottom: none;
+    }
+    .left {
+      display: flex;
+      .avatar {
+        width: 108rpx;
+        height: 108rpx;
+        border-radius: 10rpx;
+        margin-right: 20rpx;
+        flex-shrink: 0;
+      }
+      .text-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .username {
+          color: #202020;
+          font-size: 32rpx;
+          line-height: 1;
+          margin-bottom: 20rpx;
+        }
+        .title {
+          color: #909090;
+          font-size: 22rpx;
+          line-height: 1;
+          margin-bottom: 12rpx;
+        }
+        .company {
+          color: #909090;
+          font-size: 22rpx;
+          line-height: 1.5;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-shrink: 0;
+      margin-left: 20rpx;
+      
+      .status {
+        font-size: 28rpx;
+        line-height: 28rpx;
+        color: #ababab;
+        margin-bottom: 16rpx;
+      }
+      .status-0 {
+        color: $mainBlue;
+      }
+      .status-1 {
+        color: #ababab;
+      }
+      .status-2 {
+        color: #ABABAB;
+      }
+      .status-3 {
+        color: #FF7C7C;
+      }
+      .time {
+        font-size: 22rpx;
+        line-height: 22rpx;
+        color: #909090;
+      }
+    }
+  }
+}
+.empty {
+  padding-top: 112rpx;
+  color: #909090;
+  font-size: 30rpx;
+  text-align: center;
+}
+</style>

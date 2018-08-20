@@ -1,0 +1,80 @@
+<template>
+  <view>
+    <view class="list">
+      <view class="lego" @tap="fangwenliangTap">
+        <view class="number">1234</view>
+        <view class="cap"><i class="iconfont icon-renqi"></i><text>访问量</text></view>
+      </view>
+      <view class="lego">
+        <view class="number">300</view>
+        <view class="cap"><i class="iconfont icon-xingxing"></i><text>人脉数</text></view>
+      </view>
+      <view class="lego" @tap="dianzanliangTap">
+        <view class="number">1.5W+</view>
+        <view class="cap"><i class="iconfont icon-dianzan has-zan"></i><text>点赞数</text></view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class NumberBoard extends wepy.component {
+  components = {}
+  props = {
+    numberInfo: Object
+  }
+  config = {}
+  data = {}
+  methods = {
+    fangwenliangTap() {
+      wx.navigateTo({url: '/pages/mingpian/fangwenliang'})
+    },
+    dianzanliangTap() {
+      wx.navigateTo({url: '/pages/mingpian/dianzanliang'})
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.list {
+  height: 320rpx;
+  background-color: #fff;
+  padding-top: 194rpx;
+  display: flex;
+  justify-content: space-around;
+  .lego {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .number {
+      font-size: 36rpx;
+      color: #202020;
+    }
+    .cap {
+      font-size: 24rpx;
+      color: #909090;
+      vertical-align: middle;
+      .iconfont {
+        font-size: 24rpx;
+        margin-right: 6rpx;
+        &.icon-renqi {
+          color: $mainBlue;
+        }
+        &.icon-xingxing {
+          color: #FED047;
+        }
+        &.has-zan {
+          color: #ED6248;
+        }
+      }
+      text {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+</style>

@@ -1,0 +1,29 @@
+<template>
+  <text class="badge">{{text}}</text>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Badge extends wepy.component {
+  components = {}
+  props = {
+    text: String
+  }
+  config = {}
+  data = {}
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+.badge {
+  background-color: #EF4D58;
+  color: #fff;
+  padding: 0 12rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  border-radius: 40rpx;
+  vertical-align: middle;
+}
+</style>

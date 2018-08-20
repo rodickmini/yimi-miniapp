@@ -1,0 +1,27 @@
+<template>
+  <view>
+    名片码
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class MingpianMa extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '我的名片码'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

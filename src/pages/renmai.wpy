@@ -1,0 +1,178 @@
+<template>
+  <view>
+    <view class="search-bar" @tap="gotoSearch">
+      <view class="inner">
+        <i class="iconfont icon-sousuo"></i><text>搜索联系人</text>
+      </view>
+    </view>
+    <view class="list">
+      <view class="list-item" @tap="gotoFujinderen">
+        <view class="left">
+          <i class="iconfont icon-faxian"></i>
+          <text class="text">附近的人</text>
+        </view>
+        <view class="right">
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+      <view class="list-item" @tap="gotoRenqibang">
+        <view class="left">
+          <i class="iconfont icon-renqi"></i>
+          <text class="text">人气榜</text>
+        </view>
+        <view class="right">
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+      <view class="list-item" @tap="gotoZuixinjiaru">
+        <view class="left">
+          <i class="iconfont icon-faxian"></i>
+          <text class="text">最新加入</text>
+        </view>
+        <view class="right">
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+      <view class="list-item" @tap="gotoShuichakanwo">
+        <view class="left">
+          <i class="iconfont icon-eye"></i>
+          <text class="text">谁查看我</text>
+        </view>
+        <view class="right">
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <image class="img" mode="aspectFill" src="{{userAvatar}}" />
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Renmai extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '人脉'
+    }
+    data = {
+      userAvatar: "http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg"
+    }
+    methods = {
+      gotoFujinderen() {
+        wx.navigateTo({
+          url: '/pages/renmai/fujinderen'
+        })
+      },
+      gotoRenqibang() {
+        wx.navigateTo({
+          url: '/pages/renmai/renqibang'
+        })
+      },
+      gotoZuixinjiaru() {
+        wx.navigateTo({
+          url: '/pages/renmai/zuixinjiaru'
+        })
+      },
+      gotoShuichakanwo() {
+        wx.navigateTo({
+          url: '/pages/mingpian/fangwenliang'
+        })
+      }
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 112rpx;
+  background-color: #F2F2F2;
+  // border-bottom: 1rpx solid #D4D4D4;
+  .inner {
+    width: 702rpx;
+    height: 72rpx;
+    background-color: #fff;
+    line-height: 72rpx;
+    text-align: center;
+    color: #BEBEBE;
+    font-size: 30rpx;
+    vertical-align: middle;
+    border-radius: 10rpx;
+    text {
+      vertical-align: middle;
+      margin-left: 12rpx;
+    }
+  }
+}
+.list {
+  background-color: #fff;
+  padding-left: 24rpx;
+  .list-item {
+    height: 128rpx;
+    border-bottom: 1rpx solid #E4E4E4;
+    padding-right: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30rpx;
+    color: #303030;
+    &:last-child {
+      border-bottom: none;
+    }
+    .left {
+      .iconfont {
+        font-size: 50rpx;
+        margin-right: 20rpx;
+        &.icon-faxian {
+          color: #FB767C;
+        }
+        &.icon-renqi {
+          font-size: 44rpx;
+          color: $mainBlue;
+        }
+        &.icon-eye {
+          font-size: 44rpx;
+          color: #FF9F50;
+        }
+      }
+      
+      .text {
+        vertical-align: center;
+      }
+    }
+    .right {
+      .img {
+        width: 48rpx;
+        height: 48rpx;
+        border: 1rpx solid #fff;
+        border-radius: 50%;
+        margin-left: -10rpx;
+        vertical-align: middle;
+      }
+      .iconfont {
+        font-size: 24rpx;
+        color: #979797;
+        margin-left: 18rpx;
+      }
+    }
+  }
+}
+</style>

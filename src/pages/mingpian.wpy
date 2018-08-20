@@ -1,0 +1,126 @@
+<template>
+  <view class="page">
+    <view class="top-bg">
+      <view class="card" @tap="gotoDetail">
+        <view class="change-theme"></view>
+        <view class="to-right">
+          <i class="iconfont icon-xiaojiantou"></i>
+        </view>
+        <view class="edit" @tap="edit">
+          <i class="iconfont icon-edit"></i>
+        </view>
+        <name-card/>
+      </view>
+    </view>
+    <number-board/>
+    <button class="btn btn-send" open-type="share">发名片</button>
+    <button class="btn btn-send-hongbao" @tap="gotoFahongbao">发红包名片</button>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import NameCard from '../components/nameCard'
+  import NumberBoard from '../components/numberBoard'
+
+  export default class Mingpian extends wepy.page {
+    components = {
+      'name-card': NameCard,
+      'number-board': NumberBoard
+    }
+    config = {
+      navigationBarTitleText: '名片',
+      navigationBarBackgroundColor: '#04A7FE',
+      navigationBarTextStyle: 'white'
+    }
+    data = {}
+    methods = {
+      gotoDetail() {
+        wx.navigateTo({url: '/pages/mingpian/detail'})
+      },
+      edit() {
+        wx.navigateTo({url: '/pages/mingpian/edit'})
+      },
+      gotoFahongbao() {
+        wx.navigateTo({url: '/pages/hongbao/fahongbao'})
+      }
+    }
+    events = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.top-bg {
+  height: 320rpx;
+  background-color: $mainBlue;
+  padding-top: 40rpx;
+  .card {
+    position: relative;
+    width: 690rpx;
+    height: 420rpx;
+    margin: 0 auto;
+    .change-theme {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 63rpx;
+      height: 63rpx;
+      background-image: url(https://ss2.meipian.me/theme/v2/img/change.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    .to-right {
+      position: absolute;
+      top: 50%;
+      right: 25rpx;
+      width: 24rpx;
+      height: 30rpx;
+      margin-top: -15rpx;
+      .iconfont {
+        color: #909090;
+        font-size: 24rpx;
+      }
+    }
+    .edit {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80rpx;
+      height: 80rpx;
+      .iconfont {
+        position: absolute;
+        right: 25rpx;
+        bottom: 54rpx;
+        color: $mainBlue;
+        font-size: 28rpx;
+      }
+    }
+  }
+}
+.btn {
+  width: 600rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  margin: 60rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #fff;
+  &.btn-send {
+    background-color: #04A7FE;
+  }
+  &.btn-send-hongbao {
+    background-color: rgb(255, 60, 0);
+    background-image: url(https://ss2.meipian.me/theme/v2/img/btn_hongbao_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+</style>

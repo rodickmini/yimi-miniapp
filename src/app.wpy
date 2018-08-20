@@ -1,0 +1,91 @@
+<style lang="scss">
+  @import "./style/app";
+</style>
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+  import { setStore } from 'wepy-redux'
+  import _ from './js/tools'
+
+  import configStore from './store'
+
+  const store = configStore()
+  setStore(store)
+
+  export default class myApp extends wepy.app {
+    config = {
+      pages: [
+        'pages/mingpian',
+        'pages/tongxunlu',
+        'pages/renmai',
+        'pages/wode',
+        'pages/mingpian/detail',        // 名片详情
+        'pages/mingpian/edit',          // 名片编辑
+        'pages/mingpian/fangwenliang',  // 访问量
+        'pages/mingpian/dianzanliang',  // 点赞量
+        'pages/tongxunlu/search',       // 搜索
+        'pages/tongxunlu/qunDetail',    // 群详情
+        'pages/renmai/fujinderen',
+        'pages/renmai/renqibang',
+        'pages/renmai/zuixinjiaru',
+        'pages/wode/mingpianma',
+        'pages/wode/qianbao',
+        'pages/wode/yinsishezhi',
+        'pages/wode/changjianwenti',
+        'pages/hongbao/hongbaojilu',
+        'pages/hongbao/hongbaoDetail',     // 红包详情
+        'pages/hongbao/fahongbao'
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#04A7FE',
+        navigationBarTitleText: '名片',
+        navigationBarTextStyle: 'white'
+      },
+      tabBar: {
+        borderStyle: 'black',
+        backgroundColor: '#FAFAFA',
+        color: '#909090',
+        selectedColor: '#04A7FE',
+        list: [
+          {
+            pagePath: 'pages/mingpian',
+            text: '名片',
+            iconPath: 'imgs/mingpian.png',
+            selectedIconPath: 'imgs/mingpian_s.png'
+          },
+          {
+            pagePath: 'pages/tongxunlu',
+            text: '通讯录',
+            iconPath: 'imgs/tongxunlu.png',
+            selectedIconPath: 'imgs/tongxunlu_s.png'
+          },
+          {
+            pagePath: 'pages/renmai',
+            text: '人脉',
+            iconPath: 'imgs/renmai.png',
+            selectedIconPath: 'imgs/renmai_s.png'
+          },
+          {
+            pagePath: 'pages/wode',
+            text: '我的',
+            iconPath: 'imgs/wode.png',
+            selectedIconPath: 'imgs/wode_s.png'
+          }
+        ]
+      }
+    }
+
+    globalData = {
+      userInfo: null
+    }
+
+    constructor () {
+      super()
+      // 修复wx.request的并发问题
+      this.use('requestfix')
+    }
+    _ = _
+  }
+</script>
+

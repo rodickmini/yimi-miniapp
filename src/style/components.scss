@@ -1,0 +1,24 @@
+.cps-show-count {
+  display: inline-block;
+  font-size: 24rpx;
+  .icon {
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+  }
+  .icon-comment {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAWlBMVEUAAABoaGhmZmZnZ2dmZmZnZ2dmZmZoaGhnZ2dmZmZmZmZmZmZmZmZnZ2dmZmZmZmZnZ2dmZmZoaGhqampoaGhmZmZqampvb29qampmZmb////p6el7e3urq6vKwtFrAAAAGXRSTlMAgPXjzo5XPvvt5ty7soRzZ0ZCNTEjIRcMVxAljAAAAMxJREFUSMfdlUkOgzAQBId939c28P9vhiRCTixA7it1LlmW3dMjz2CMwso5qMJovFajIINJFkSnbuPjHL8RkyHHNfnwL7cJ7kjaX7mOcU9cazmEwbqtMAgPuXdhsKgFBm7/lWcPJkopmHjzx3ZgZcN5y5NrabvTbgewtBHstmdteyIdrG10UhJ2KQVhF+ITti+p/u5FnbHoEKSi87SpczadLe5s7t7cm3Dvzf0llRMug1y+qdnh5pKaeapPqK6iepDqWKa/md3A7J1H8AICiIEV4+4GGgAAAABJRU5ErkJggg==) center no-repeat;
+  }
+  .icon-fire {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAWlBMVEUAAABoaGhmZmZnZ2dmZmZnZ2dmZmZoaGhnZ2dmZmZmZmZmZmZmZmZnZ2dmZmZmZmZnZ2dmZmZoaGhqampoaGhmZmZqampvb29qampmZmb////p6el7e3urq6vKwtFrAAAAGXRSTlMAgPXjzo5XPvvt5ty7soRzZ0ZCNTEjIRcMVxAljAAAAMxJREFUSMfdlUkOgzAQBId939c28P9vhiRCTixA7it1LlmW3dMjz2CMwso5qMJovFajIINJFkSnbuPjHL8RkyHHNfnwL7cJ7kjaX7mOcU9cazmEwbqtMAgPuXdhsKgFBm7/lWcPJkopmHjzx3ZgZcN5y5NrabvTbgewtBHstmdteyIdrG10UhJ2KQVhF+ITti+p/u5FnbHoEKSi87SpczadLe5s7t7cm3Dvzf0llRMug1y+qdnh5pKaeapPqK6iepDqWKa/md3A7J1H8AICiIEV4+4GGgAAAABJRU5ErkJggg==) center no-repeat;
+  }
+  .icon-zan {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAMAAAANxBKoAAAAWlBMVEUAAABoaGhmZmZnZ2dmZmZnZ2dmZmZoaGhnZ2dmZmZmZmZmZmZmZmZnZ2dmZmZmZmZnZ2dmZmZoaGhqampoaGhmZmZqampvb29qampmZmb////p6el7e3urq6vKwtFrAAAAGXRSTlMAgPXjzo5XPvvt5ty7soRzZ0ZCNTEjIRcMVxAljAAAAMxJREFUSMfdlUkOgzAQBId939c28P9vhiRCTixA7it1LlmW3dMjz2CMwso5qMJovFajIINJFkSnbuPjHL8RkyHHNfnwL7cJ7kjaX7mOcU9cazmEwbqtMAgPuXdhsKgFBm7/lWcPJkopmHjzx3ZgZcN5y5NrabvTbgewtBHstmdteyIdrG10UhJ2KQVhF+ITti+p/u5FnbHoEKSi87SpczadLe5s7t7cm3Dvzf0llRMug1y+qdnh5pKaeapPqK6iepDqWKa/md3A7J1H8AICiIEV4+4GGgAAAABJRU5ErkJggg==) center no-repeat;
+  }
+  .count{
+    margin-left: 4rpx;
+  }
+  .icon, .count {
+    vertical-align: middle;
+  }
+}

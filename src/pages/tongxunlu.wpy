@@ -1,0 +1,230 @@
+<template>
+  <view class="page">
+    <view class="tab">
+      <view class="tab-item {{tabStatus[0]}}" @tap="switchTab(0)">名片夹</view>
+      <view class="tab-item {{tabStatus[1]}}" @tap="switchTab(1)">群通讯录</view>
+    </view>
+    <mingpian-jia :user="user" :list="list" wx:if="{{tabStatus[0]}}"/>
+    <qun-list :list="qunList" wx:if="{{tabStatus[1]}}"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import MingpianJia from '../components/tongxunlu/mingpianJia'
+  import QunList from '../components/tongxunlu/qunList'
+
+  export default class Tongxunlu extends wepy.page {
+    components = {
+      'mingpian-jia': MingpianJia,
+      'qun-list': QunList
+    }
+    config = {
+      navigationBarTitleText: '通讯录'
+    }
+    data = {
+      user: {
+        avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+        username: '徐翔',
+        title: '经理',
+        company: '阿里妈妈互联网有限公司'
+      },
+      list: [
+        {
+          id: 1,
+          username: '虎妞',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          status: 0,
+          statusText: '申请交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 2,
+          username: '花花',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          status: 1,
+          statusText: '待对方接受交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 3,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 2,
+          statusText: '已交换',
+          time: '2018-08-05'
+        },
+        {
+          id: 4,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 3,
+          statusText: '已拒绝',
+          time: '2018-08-05'
+        },
+        {
+          id: 5,
+          username: '刘翔',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          status: 1,
+          statusText: '待对方接受交换',
+          time: '2018-08-05'
+        }
+      ],
+      qunList: [
+        {
+          id: 1,
+          name: '头像bass帅',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 2,
+          name: '小程序大梦想',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 3,
+          name: '一米多高群英荟萃',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 1,
+          name: '头像bass帅',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 2,
+          name: '小程序大梦想',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 3,
+          name: '一米多高群英荟萃',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 1,
+          name: '头像bass帅',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 2,
+          name: '小程序大梦想',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 3,
+          name: '一米多高群英荟萃',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 1,
+          name: '头像bass帅',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 2,
+          name: '小程序大梦想',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        },
+        {
+          id: 3,
+          name: '一米多高群英荟萃',
+          avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+          memberCount: 10
+        }
+      ],
+      tabStatus: ['active', '']
+    }
+    methods = {
+      switchTab(index) {
+        this.tabStatus = index == 0 ? ['active', ''] : ['', 'active']
+      }
+    }
+    statusText(status) {
+      const map = {
+        0: '申请交换',
+        1: '待对方接受交换',
+        2: '已交换',
+        3: '已拒绝'
+      }
+      return map[status]
+    }
+    onLoad() {
+      
+    }
+    onShareAppMessage({from, target, webviewUrl}) {
+      if(from === 'button') {
+        return {
+          title: '很高兴认识您，这是我的名片，请惠存！',
+          path: '/pages/mingpian/fangwenliang',
+          imageUrl: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg'
+        }
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.page {
+  padding-top: 90rpx;
+}
+.tab {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1rpx solid #d4d4d4;
+  .tab-item {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    font-size: 28rpx;
+    color: #909090;
+    line-height: 90rpx;
+    &.active {
+      color: #303030;
+      font-weight: bold;
+    }
+    &.active::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 8rpx;
+      left: 50%;
+      margin-left: -23rpx;
+      width: 46rpx;
+      height: 6rpx;
+      border-radius: 100rpx;
+      background-color: $mainBlue;
+    }
+  }
+}
+</style>

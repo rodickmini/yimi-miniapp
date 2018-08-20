@@ -1,0 +1,130 @@
+<template>
+  <view class="page">
+    <view class="left-amount">
+      <view class="label">账户余额</view>
+      <view class="count">{{total}}元</view>
+    </view>
+    <view class="draw-amount">
+      <view class="label">提现金额</view>
+      <view class="count">¥<input type="number" @input="onInput" value="{{inputVal}}"/></view>
+    </view>
+    <view class="tips" wx:if="{{!error}}">
+      <text class="text">将被提现到微信钱包</text>
+      <text class="draw-all" @tap="drawAll">全部提现</text>
+    </view>
+    <view class="tips error" wx:else>
+      <text class="text">输入金额超过账户余额</text>
+    </view>
+    <view class="btn-draw">提现</view>
+    <view class="tip">1-5个工作日到账</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Qianbao extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '我的钱包'
+    }
+    data = {
+      total: 300,
+      inputVal: '',
+      error: false
+    }
+    methods = {
+      onInput(e) {
+        let value = e.detail.value
+        this.inputVal = e.detail.value
+        if(value > this.total) {
+          this.error = true
+        } else {
+          this.error = false
+        }
+      },
+      drawAll() {
+        this.inputVal = this.total
+        this.$apply()
+      }
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.page {
+  padding-top: 130rpx;
+}
+.label {
+  font-size: 32rpx;
+  color: #606060;
+  margin-right: 46rpx;
+}
+.left-amount {
+  display: flex;
+  padding-left: 30rpx;
+  align-items: flex-end;
+  margin-bottom: 90rpx;
+  .count {
+    font-size: 46rpx;
+    line-height: 1;
+    color: #303030;
+  }
+}
+.draw-amount {
+  display: flex;
+  height: 114rpx;
+  padding-left: 30rpx;
+  align-items: center;
+  .count {
+    height: 100%;
+    flex-grow: 1;
+    border-bottom: 1rpx solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    input {
+      margin-left: 10rpx;
+    }
+  }
+}
+.tips {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx 0 204rpx;
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  line-height: 1;
+  .text {
+    color: #909090;
+  }
+  .draw-all {
+    color: $mainBlue;
+  }
+  &.error {
+    .text {
+      color: #E64340;
+    }
+  }
+}
+.btn-draw {
+  width: 600rpx;
+  height: 90rpx;
+  margin: 80rpx auto 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $mainBlue;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.tip {
+  font-size: 26rpx;
+  color: #909090;
+  text-align: center;
+}
+</style>

@@ -1,0 +1,158 @@
+<template>
+  <view class="page">
+    <view class="wrapper">
+      <view class="input-wrapper">
+        <view class="label">总金额</view>
+        <view class="right">
+          <input type="number" placeholder="0.00" placeholder-style="color: #ccc;"/>
+          <text class="addon">元</text>
+        </view>
+      </view>
+      <view class="tips">小伙伴们打开名片即可获得随机红包哦</view>
+      <view class="input-wrapper">
+        <view class="label">红包数量</view>
+        <view class="right">
+          <input type="number" placeholder="填写红包个数" placeholder-style="color: #ccc;"/>
+          <text class="addon">个</text>
+        </view>
+      </view>
+      <textarea class="words" placeholder="拆开红包，大机大遇" placeholder-style="color: #ccc;"/>
+    </view>
+    <view class="total-amount">
+      <view class="amount">0.00</view>
+      <view class="addon">元</view>
+    </view>
+    <view class="main-btn">生成红包名片</view>
+    <view class="tips">
+      需支付 <text class="red">0.00</text>元 服务费
+    </view>
+    <view class="bottom-area">
+      <view class="item">红包记录</view>
+      <view class="item">联系客服</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Fahongbao extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '发红包',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
+    }
+    data = {}
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.page {
+  padding: 0 24rpx;
+}
+.wrapper {
+  padding: 60rpx 0;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #202020;
+  .input-wrapper {
+    height: 114rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40rpx 0 24rpx;
+    .right {
+      display: flex;
+      input {
+        width: 240rpx;
+        text-align: right;
+      }
+      .addon {
+        margin-left: 20rpx;
+      }
+    }
+  }
+  .tips {
+    font-size: 26rpx;
+    line-height: 1;
+    padding: 24rpx 24rpx 40rpx;
+    text-align: left;
+  }
+  .words {
+    width: 100%;
+    height: 160rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    margin-top: 50rpx;
+    padding: 20rpx 24rpx;
+    font-size: 36rpx;
+    line-height: 50rpx;
+    color: #303030;
+  }
+}
+.total-amount {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  .amount {
+    font-size: 100rpx;
+    line-height: 1;
+    color: #303030;
+  }
+  .addon {
+    font-size: 32rpx;
+    line-height: 32rpx;
+    color: #202020;
+    margin-left: 20rpx;
+    margin-bottom: 12rpx;
+  }
+}
+.main-btn {
+  height: 90rpx;
+  border-radius: 10rpx;
+  background-color: #D85940;
+  font-size: 34rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0 24rpx;
+}
+.tips {
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 1;
+  color: #909090;
+  .red {
+    color: #D85940;
+  }
+}
+.bottom-area {
+  position: fixed;
+  bottom: 48rpx;
+  left: 24rpx;
+  right: 24rpx;
+  font-size: 26rpx;
+  line-height: 1;
+  color: #909090;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .item {
+    padding: 0 50rpx;
+    &:first-child {
+      border-right: 1rpx solid #d8d8d8;
+    }
+  }
+}
+</style>

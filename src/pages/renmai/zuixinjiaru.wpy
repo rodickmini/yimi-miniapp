@@ -1,0 +1,152 @@
+<template>
+  <view>
+    <view class="filter">
+      <repeat for="{{filter}}" key="index" index="index" item="item">
+        <view class="lego {{item.active}}" @tap="tapFilter({{index}})">{{item.name}}</view>
+      </repeat>
+    </view>
+    <view class="list">
+      <view class="item">
+        <view class="avatar-wrapper">
+          <image class="avatar" mode="aspectFill" src="http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg"/>
+        </view>
+        <view class="info">
+          <view class="name">小红</view>
+          <view class="other-info">
+            <view class="title">经理</view>
+            <view class="company line-clamp-1">九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄</view>
+          </view>
+        </view>
+        <view class="addon">刚刚</view>
+      </view>
+      <view class="item">
+        <view class="avatar-wrapper">
+          <image class="avatar" mode="aspectFill" src="http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg"/>
+        </view>
+        <view class="info">
+          <view class="name">小红</view>
+          <view class="other-info">
+            <view class="title">经理</view>
+            <view class="company line-clamp-1">九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄九鸣茶庄</view>
+          </view>
+        </view>
+        <view class="addon">2018-08-08</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Zuixinjiaru extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '最新加入',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
+    }
+    data = {
+      filter: [
+        {
+          name: '同行',
+          active: ''
+        },
+        {
+          name: '同城',
+          active: ''
+        },
+        {
+          name: '红包',
+          active: ''
+        }
+      ]
+    }
+    methods = {
+      tapFilter(index) {
+        this.filter[index].active = this.filter[index].active ? '' : 'active'
+      }
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+.filter {
+  height: 98rpx;
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .lego {
+    font-size: 28rpx;
+    color: #909090;
+    padding: 15rpx 47rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid transparent;
+    &.active {
+      color: $mainBlue;
+      border: 1rpx solid $mainBlue;
+    }
+  }
+}
+.list {
+  background-color: #fff;
+  padding-left: 30rpx;
+  .item {
+    height: 168rpx;
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 2rpx solid #E8E8E8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:last-child {
+      border-bottom: none;
+    }
+    .avatar-wrapper {
+      flex-shrink: 0;
+      width: 108rpx;
+      height: 108rpx;
+      margin-right: 20rpx;
+      .avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 10rpx;
+      }
+    }
+    .info {
+      height: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .name {
+        font-size: 32rpx;
+        color: #202020;
+        line-height: 1;
+      }
+      .other-info {
+        font-size: 22rpx;
+        color: #909090;
+        .title {
+          line-height: 1;
+          margin-bottom: 6rpx;
+        }
+        .company {
+          line-height: 1.5;
+          margin-bottom: -6rpx;
+        }
+      }
+    }
+    .addon {
+      margin-left: 20rpx;
+      white-space: nowrap;
+      font-size: 28rpx;
+      color: #909090;
+    }
+  }
+}
+</style>

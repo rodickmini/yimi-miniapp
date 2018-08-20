@@ -1,0 +1,86 @@
+<template>
+  <view>
+    <view class="list">
+      <repeat for="{{list}}" key="index" index="index" item="item">
+        <view class="item">
+          <text class="text">{{item.content}}</text>
+          <switch checked="{{item.on ? 'checked': ''}}" bindchange="switch1Change"/>
+        </view>
+      </repeat>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class YinsiShezhi extends wepy.page {
+    components = {}
+    config = {
+      navigationBarTitleText: '隐私设置',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
+    }
+    data = {
+      list: [
+        {
+          content: '手机号仅互换名片后可见',
+          on: true
+        },
+        {
+          content: '申请交换名片时需要验证码',
+          on: false
+        },
+        {
+          content: '不出现在附近的人脉列表中',
+          on: false
+        },
+        {
+          content: '不出现在人气榜列表中',
+          on: false
+        },
+        {
+          content: '不出现在最新加入列表中',
+          on: false
+        },
+        {
+          content: '不可以搜索到我',
+          on: false
+        }
+      ]
+    }
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.list {
+  background-color: #fff;
+  padding-left: 30rpx;
+  .item {
+    height: 100rpx;
+    padding-right: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #E4E4E4;
+    &:last-child {
+      border-bottom: none;
+    }
+    .text {
+      font-size: 32rpx;
+      color: #202020;
+    }
+    .iconfont {
+      font-size: 32rpx;
+      color: #A5A5A5;
+      transition: all .3s ease;
+    }
+  }
+}
+</style>

@@ -1,0 +1,66 @@
+<template>
+  <view class="page">
+    <top-tab :list="tabList"/>
+    <user-list :list="userList"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import UserList from '../../components/userList'
+  import TopTab from '../../components/topTab'
+
+  export default class Dianzanliang extends wepy.page {
+    components = {
+      'user-list': UserList,
+      'top-tab': TopTab
+    }
+    config = {
+      navigationBarTitleText: '点赞量',
+      navigationBarBackgroundColor: '#FAFAFA',
+      navigationBarTextStyle: 'black'
+    }
+    data = {
+      tabList: [
+        '今日点赞量·123',
+        '累计点赞量·10W+'
+      ],
+      userList: [
+        {
+          id: 1,
+          username: '发到您配',
+          avatar: 'https://ss2.meipian.me/users/2871053/160db1ee895544f8a338d13a7bd840be.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          visitTime: '刚刚'
+        },
+        {
+          id: 2,
+          username: '发到您配',
+          avatar: 'https://ss2.meipian.me/users/2871053/160db1ee895544f8a338d13a7bd840be.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司',
+          visitTime: '10分钟前'
+        },
+        {
+          id: 3,
+          username: '发到您配',
+          avatar: 'https://ss2.meipian.me/users/2871053/160db1ee895544f8a338d13a7bd840be.jpg',
+          title: '经理',
+          company: '苏宁易购网络有限公司苏宁易购网络有限公司',
+          visitTime: '06-12 12:34'
+        }
+      ]
+    }
+    methods = {
+      
+    }
+    onLoad() {
+      
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+$mainBlue: #04A7FE;
+</style>

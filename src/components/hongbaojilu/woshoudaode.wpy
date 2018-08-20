@@ -1,0 +1,143 @@
+<template>
+  <view>
+    <view class="board">
+      <view class="avatar-wrapper">
+        <image class="avatar" mode="aspectFill" src="{{avatar}}"/>
+      </view>
+      <view class="nickname line-clamp-1">{{nickname}}共收到</view>
+      <view class="amount">
+        <text class="money">272.22</text>
+        <text class="yuan">元</text>
+      </view>
+      <view class="red-count">收到红包 <text class="count">66</text> 个</view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <view class="left">
+          <view class="words line-clamp-1">老王</view>
+          <view class="time">06-15 12:34</view>
+        </view>
+        <view class="right">
+          <view class="total">100.00元</view>
+          <view class="status">已领取12/20个</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="left">
+          <view class="words line-clamp-1">老吴</view>
+          <view class="time">06-15 12:34</view>
+        </view>
+        <view class="right">
+          <view class="total">100.00元</view>
+          <view class="status">已领取12/20个</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Woshoudaode extends wepy.component {
+  components = {}
+  props = {}
+  config = {}
+  data = {
+    avatar: 'http://static2.ivwen.com/users/7996859/3bee7d1bcaa940bc86a0103a2b84fad6.jpg',
+    nickname: '小明'
+  }
+  methods = {}
+}
+</script>
+
+<style lang="scss" scoped>
+.board {
+  background-color: #F2F2F2;
+  padding: 40rpx 40rpx 72rpx;
+  .avatar-wrapper {
+    text-align: center;
+    .avatar {
+      display: inline-block;
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 12rpx;
+      vertical-align: middle;
+    }
+  }
+  .nickname {
+    font-size: 32rpx;
+    line-height: 1;
+    color: #303030;
+    text-align: center;
+    margin: 40rpx 0 60rpx;
+  }
+  .amount {
+    font-size: 100rpx;
+    line-height: 1;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 40rpx;
+    .yuan {
+      font-size: 32rpx;
+      color: #202020;
+      margin-left: 20rpx;
+    }
+  }
+  .red-count {
+    font-size: 40rpx;
+    line-height: 1;
+    color: #909090;
+    text-align: center;
+    .count {
+      color: #D85940;
+    }
+  }
+}
+.list {
+  background-color: #fff;
+  padding-left: 24rpx;
+  .item {
+    padding-right: 24rpx;
+    height: 136rpx;
+    border-bottom: 1rpx solid #D4D4D4;
+    // &:last-child {
+    //   border-bottom: none;
+    // }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .words {
+        font-size: 34rpx;
+        color: #303030;
+        margin-bottom: 8rpx;
+      }
+      .time {
+        font-size: 28rpx;
+        color: #909090;
+      }
+    }
+    .right {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      .total {
+        font-size: 34rpx;
+        color: #303030;
+        margin-bottom: 8rpx;
+      }
+      .status {
+        font-size: 28rpx;
+        color: #909090;
+      }
+    }
+  }
+}
+</style>
